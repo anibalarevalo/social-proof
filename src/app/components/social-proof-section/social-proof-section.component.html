@@ -1,1 +1,28 @@
-<p>social-proof-section works!</p>
+<div class="max-w-[350px] bg-[url('/../../../assets/img/bg-pattern-top-mobile.svg')] mx-auto px-6 tracking-tight sm:max-w-fit md:max-w-[1024px] md:m-9 md:mt-28 md:mx-auto md:bg-[url('/../../../assets/img/bg-pattern-top-desktop.svg')]">
+  <div class="text-center leading-snug md:grid md:grid-cols-4 md:text-start">
+    <div class="pt-6 md:col-span-2">
+      <h1 class="font-LS-bold text-very-dark-magenta text-4xl md:pr-48 leading-none">10,000+ of our users love our products.</h1>
+      <p class="mt-4 text-dark-grayish-magenta font-LS-medium md:pr-24 md:tracking-tighter">We only provide great products combined with excellent customer service. See what our satisfied customers are saying about our services.</p>
+    </div>
+    <div class="mt-4 flex flex-col md:col-span-2 md:justify-center">
+      <div *ngFor="let rated of ratings" class="mt-4 bg-light-grayish-magenta rounded-xl md:relative md:inset-0 md:flex md:px-10">
+        <img src="../../../assets/img/icon-star.svg" alt="star" class="inline-block mt-2 px-1 my-auto" *ngFor="let number of fiveIconStars">
+        <p class="px-4 py-2 font-LS-bold text-very-dark-magenta md:inline-block ">{{rated}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="mt-6">
+    <div class="py-4 rounded-xl grid grid-row-1 gap-4 md:grid-cols-3">
+      <div *ngFor="let buyer of buyers" class="bg-very-dark-magenta px-7 py-4 rounded-xl grid grid-cols-4">
+        <div class="col-span-1 ">
+          <img src="{{imageURL}}{{buyer.image}}" alt="user-face" class="inline-block w-11 rounded-full transition-all">
+        </div>
+        <div class="col-span-3 place-self-start">
+          <h2 class="text-white font-LS-medium">{{buyer.name | titlecase}}</h2>
+          <p *ngIf="buyer.verified" class="text-soft-pink font-LS-medium">Verified Buyer</p>
+        </div>
+        <p class="text-white font-LS-regular pt-4 col-span-full">{{buyer.description}}</p>
+      </div>
+    </div>
+  </div>
+</div>
